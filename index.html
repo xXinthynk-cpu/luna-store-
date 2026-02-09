@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>luna store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f6f6f6;
+      color: #333;
+    }
+
+    header {
+      background: var(--logo-color, #d2691e);
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+
+    header img {
+      max-height: 80px;
+      display: block;
+      margin: 0 auto 10px;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .item {
+      display: flex;
+      gap: 20px;
+      background: white;
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .item img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @media (max-width: 700px) {
+      .item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <!-- LOGO -->
+  <img src="assets/images/logo.png" alt="Logo Toko">
+  <h1>luna store</h1>
+  <p>Toko Baju & Celana Anak</p>
+</header>
+
+<section>
+  <!-- ITEM 1 -->
+  <div class="item">
+    <img src="assets/images/produk1.jpg">
+    <div>
+      <h3>Produk 1</h3>
+      <p>Deskripsi produk 1</p>
+    </div>
+  </div>
+
+  <!-- ITEM 2 -->
+  <div class="item">
+    <img src="assets/images/produk2.jpg">
+    <div>
+      <h3>Produk 2</h3>
+      <p>Deskripsi produk 2</p>
+    </div>
+  </div>
+
+  <!-- Ulangi sampai produk 10 -->
+</section>
+
+<footer>
+  © luna store
+</footer>
+
+</body>
+</html>
