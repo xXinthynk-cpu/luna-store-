@@ -48,7 +48,7 @@ font-weight:bold;
 
 .hero{
 background:linear-gradient(rgba(15,47,37,0.8),rgba(15,47,37,0.8)),
-url('https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf');
+url('assets/images/bg_photos.png');
 background-size:cover;
 background-position:center;
 color:white;
@@ -226,7 +226,7 @@ margin-top:20px;
 <div class="grid">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba7" onclick="openPopup(this.src,'Gamis Royal Emerald','Gamis premium elegan warna hijau emerald dengan aksen gold','Rp 399.000')">
+<img src="assets/images/best.produk.png" onclick="openPopup(this.src,'Gamis Royal Emerald','Gamis premium elegan warna hijau emerald dengan aksen gold','Rp 399.000')">
 <div class="card-body">
 <h3>Gamis Royal Emerald</h3>
 <div class="price">Rp 399.000</div>
@@ -235,10 +235,10 @@ margin-top:20px;
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03" onclick="openPopup(this.src,'Couple Ramadhan Gold','Set couple mewah kombinasi cream & gold','Rp 599.000')">
+<img src="assets/images/celana.anak.best.png" onclick="openPopup(this.src,'Couple Ramadhan Gold','Set couple mewah kombinasi cream & gold','Rp 599.000')">
 <div class="card-body">
 <h3>Couple Ramadhan Gold</h3>
-<div class="price">Rp 599.000</div>
+<div class="price">Rp  149.000</div>
 <button onclick="addToCart()">Tambah ke Keranjang</button>
 </div>
 </div>
@@ -261,7 +261,7 @@ let gamis=[
 gamis.forEach(g=>{
 document.write(`
 <div class="card">
-<img src="https://source.unsplash.com/400x400/?gamis,fashion" onclick="openPopup(this.src,'${g[0]}','Gamis elegan untuk Ramadhan & Lebaran','${g[1]}')">
+<img src="assets/images/couple.best.jpeg" onclick="openPopup(this.src,'${g[0]}','Gamis elegan untuk Ramadhan & Lebaran','${g[1]}')">
 <div class="card-body">
 <h3>${g[0]}</h3>
 <div class="price">${g[1]}</div>
