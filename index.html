@@ -3,402 +3,256 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lunatic Fashion Store | Ramadhan Elegant</title>
+<title>Lunatic Fashion Store</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-    font-family:'Poppins',sans-serif;
-    background:#F5F1EA;
-    color:#1c2b22;
+font-family:'Poppins',sans-serif;
+background:#f7f5f0;
+color:#222;
 }
+
+/* HEADER */
 header{
-    background:#0F3D2E;
-    color:#fff;
-    padding:20px;
-    text-align:center;
+position:sticky;top:0;z-index:1000;
+display:flex;justify-content:space-between;align-items:center;
+padding:20px 8%;
+background:#fff;
+box-shadow:0 10px 25px rgba(0,0,0,.06);
 }
-header h1{
-    font-family:'Playfair Display',serif;
-    letter-spacing:3px;
+.logo{
+font-family:'Playfair Display',serif;
+font-size:28px;
+background:linear-gradient(90deg,#c6a75e,#fff3c4,#c6a75e);
+background-size:200%;
+-webkit-background-clip:text;
+color:transparent;
+animation:shimmer 3s linear infinite;
 }
-nav{
-    margin-top:10px;
+@keyframes shimmer{
+0%{background-position:-200%}
+100%{background-position:200%}
 }
-nav a{
-    color:#D4AF37;
-    margin:0 15px;
-    text-decoration:none;
-    font-weight:500;
+.cart{
+cursor:pointer;
+position:relative;
 }
+.cart span{
+position:absolute;
+top:-8px;right:-10px;
+background:gold;color:black;
+padding:3px 6px;
+border-radius:50%;
+font-size:12px;
+}
+
+/* HERO */
 .hero{
-    background:linear-gradient(rgba(15,61,46,0.8),rgba(15,61,46,0.8)),
-    url('https://images.unsplash.com/photo-1618354691373-d851c5c3a37a');
-    background-size:cover;
-    background-position:center;
-    color:#fff;
-    padding:120px 20px;
-    text-align:center;
+height:80vh;
+background:linear-gradient(rgba(0,60,40,.6),rgba(0,60,40,.6)),
+url("https://images.unsplash.com/photo-1520975869019-70f3c2d6f6a4") center/cover;
+display:flex;align-items:center;justify-content:center;
+text-align:center;color:white;
 }
-.hero h2{
-    font-size:42px;
-    font-family:'Playfair Display',serif;
+.hero h1{
+font-family:'Playfair Display',serif;
+font-size:52px;
+background:linear-gradient(90deg,#c6a75e,#fff3c4,#c6a75e);
+-webkit-background-clip:text;
+color:transparent;
+animation:shimmer 4s infinite linear;
 }
-.btn{
-    background:#D4AF37;
-    padding:12px 25px;
-    color:#0F3D2E;
-    text-decoration:none;
-    border-radius:30px;
-    display:inline-block;
-    margin-top:20px;
-    font-weight:600;
+
+/* SECTION */
+section{padding:80px 8%}
+.section-title{
+text-align:center;
+font-family:'Playfair Display',serif;
+font-size:36px;
+margin-bottom:50px;
+color:#184c3c;
 }
-.section{
-    padding:60px 20px;
-    text-align:center;
-}
-.section h2{
-    font-family:'Playfair Display',serif;
-    margin-bottom:40px;
-    color:#0F3D2E;
-}
+
+/* PRODUCTS */
 .products{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
 }
-.card{
-    background:#fff;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
-    transition:0.4s;
-    cursor:pointer;
+.product{
+background:#fff;
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+transition:.4s;
+cursor:pointer;
 }
-.card:hover{
-    transform:translateY(-8px);
+.product:hover{transform:translateY(-10px)}
+.product img{
+width:100%;height:300px;object-fit:cover;
 }
-.card img{
-    width:100%;
-    height:280px;
-    object-fit:cover;
+.product-info{padding:20px}
+.product-info h3{
+font-family:'Playfair Display',serif;
+margin-bottom:10px;
 }
-.card-content{
-    padding:20px;
+.product-info p{font-size:14px;color:#777}
+.price{color:#c6a75e;font-weight:600;margin:10px 0}
+.btn{
+display:inline-block;
+padding:8px 18px;
+border-radius:30px;
+border:none;
+background:#184c3c;
+color:white;
+cursor:pointer;
+transition:.3s;
 }
-.card h3{
-    font-family:'Playfair Display',serif;
+.btn:hover{background:#c6a75e;color:black}
+
+/* POPUP DETAIL */
+.popup,.cart-popup,.image-viewer{
+position:fixed;top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,.8);
+display:none;
+align-items:center;justify-content:center;
+z-index:3000;
 }
-.price{
-    color:#D4AF37;
-    font-weight:600;
-    margin:8px 0;
+.popup-box{
+background:white;
+width:80%;max-width:900px;
+border-radius:20px;
+overflow:hidden;
+display:flex;
+animation:fade .4s ease;
 }
-.badge{
-    position:absolute;
-    background:#D4AF37;
-    padding:5px 10px;
-    border-radius:20px;
-    margin:10px;
-    font-size:12px;
-}
-.promo{
-    background:#0F3D2E;
-    color:#fff;
-    padding:60px 20px;
-}
-.promo h2{
-    color:#D4AF37;
-}
-.footer{
-    background:#0F3D2E;
-    color:#fff;
-    padding:40px 20px;
-    text-align:center;
-}
-.social a{
-    color:#D4AF37;
-    margin:0 10px;
-    text-decoration:none;
-}
-.popup{
-    display:none;
-    position:fixed;
-    top:0;left:0;
-    width:100%;height:100%;
-    background:rgba(0,0,0,0.6);
-    justify-content:center;
-    align-items:center;
-}
-.popup-content{
-    background:#fff;
-    padding:30px;
-    border-radius:15px;
-    width:90%;
-    max-width:500px;
-    animation:fade 0.4s ease;
+.popup-box img{width:50%;object-fit:cover}
+.popup-content{padding:30px}
+.close{
+position:absolute;top:20px;right:30px;
+font-size:35px;color:white;cursor:pointer;
 }
 @keyframes fade{
-    from{opacity:0;transform:scale(0.8)}
-    to{opacity:1;transform:scale(1)}
+from{opacity:0;transform:scale(.8)}
+to{opacity:1;transform:scale(1)}
 }
-.close{
-    margin-top:15px;
-    cursor:pointer;
-    font-weight:bold;
+
+/* FULLSCREEN IMAGE */
+.image-viewer img{
+max-width:90%;max-height:90%;
+border-radius:20px;
+box-shadow:0 0 50px rgba(198,167,94,.6);
+}
+
+/* MAP */
+iframe{
+width:100%;height:400px;border:none;border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+/* FOOTER */
+footer{
+background:#184c3c;color:white;
+text-align:center;padding:25px;
 }
 </style>
 </head>
 
 <body>
-    <!-- LIGHTBOX -->
-<div id="lightbox" class="lightbox">
-  <span onclick="closeImage()">&times;</span>
-  <img id="lightbox-img">
-</div>
-
 
 <header>
-<h1>LUNATIC FASHION STORE</h1>
-<nav>
-<a href="#">Anak</a>
-<a href="#">Dewasa</a>
-<a href="#">Couple</a>
-</nav>
+<div class="logo">Lunatic Fashion Store</div>
+<div class="cart" onclick="openCart()">🛒 Cart <span id="cartCount">0</span></div>
 </header>
-    /* LIGHTBOX FULL IMAGE */
-.lightbox {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    padding-top: 60px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.9);
-    text-align: center;
-}
 
-.lightbox img {
-    max-width: 90%;
-    max-height: 80vh;
-    border-radius: 10px;
-    animation: zoomIn 0.4s ease;
-}
+<div class="hero">
+<h1>Ramadhan Luxury Collection</h1>
+</div>
 
-@keyframes zoomIn {
-    from {transform: scale(0.7); opacity:0;}
-    to {transform: scale(1); opacity:1;}
-}
-
-.lightbox span {
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    color: #D4AF37;
-    font-size: 35px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-<section class="hero">
-<h2>Ramadhan Elegant Collection 2026</h2>
-<p>Elegance in Every Thread — Koleksi Keluarga Eksklusif</p>
-<a href="#best" class="btn">Belanja Sekarang</a>
-</section>
-    <!-- PROMO -->
-<section class="promo">
-<h2>🌙 Promo Spesial Ramadhan 🌙</h2>
-<p>Diskon hingga 25% untuk Family Set</p>
-<p>Gratis Ongkir seluruh Indonesia*</p>
-<p>Bonus Hijab Exclusive untuk pembelian di atas 500rb</p>
-</section>
-
-<!-- BEST SELLER -->
-<section class="section" id="best">
-<h2>Best Seller & Produk Unggulan</h2>
+<section>
+<h2 class="section-title">Gamis Collection</h2>
 <div class="products">
 
-<div class="card" onclick="showDetail('Gamis Emerald Premium','Rp 349.000','Gamis hijau emerald berbahan satin premium, nyaman dan mewah untuk Ramadhan.')">
-<span class="badge">BEST SELLER</span>
-<img src="assets/images/couple.best.png" onclick="openImage(this.src)">
-
-<div class="card-content">
-<h3>Gamis Emerald Premium</h3>
-<p class="price">Rp 349.000</p>
-<p>Tampil anggun & elegan.</p>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1520975916090-3105956dac38"
+onclick="viewImage(event,this.src)">
+<div class="product-info">
+<h3>Gamis Emerald Gold</h3>
+<p>Bahan satin premium, flowy & elegan</p>
+<div class="price">Rp 450.000</div>
+<button class="btn" onclick="addToCart(event)">Add to Cart</button>
 </div>
 </div>
 
-<div class="card" onclick="showDetail('Couple Ramadhan Gold','Rp 599.000','Set couple eksklusif dengan detail bordir emas.')">
-<span class="badge">UNGGULAN</span>
-<img src="assets/images/produk_unggulan1.png" onclick="openImage(this.src)">
-
-<div class="card-content">
-<h3>Couple Ramadhan Gold</h3>
-<p class="price">Rp 599.000</p>
-<p>Serasi & mewah untuk pasangan.</p>
-</div>
-</div>
-
-</div>
-</section>
-
-<!-- GAMIS COLLECTION -->
-<section class="section">
-<h2>Gamis Collection</h2>
-<div class="products">
-
-<div class="card" onclick="showDetail('Gamis Cream Gold','Rp 329.000','Desain minimalis dengan sentuhan emas premium.')">
-<img src="https://images.unsplash.com/photo-1618354691454-61e4f74c461a">
-<div class="card-content">
-<h3>Gamis Cream Gold</h3>
-<p class="price">Rp 329.000</p>
-<p>Simple & classy.</p>
-</div>
-</div>
-
-<div class="card" onclick="showDetail('Gamis Sage Elegant','Rp 339.000','Bahan adem dan flowy, cocok untuk ibadah & acara.')">
-<img src="assets/images/produk_unggulan1.png">
-<div class="card-content">
-<h3>Gamis Sage Elegant</h3>
-<p class="price">Rp 339.000</p>
-<p>Nyaman & modern.</p>
-</div>
-</div>
-
-<div class="card" onclick="showDetail('Family Set Cream','Rp 799.000','Set keluarga 3–4 orang dengan warna senada.')">
-<img src="assets/images/produk_unggulan2.png">
-<div class="card-content">
-<h3>Family Set Cream</h3>
-<p class="price">Rp 799.000</p>
-<p>Serasi untuk Hari Raya.</p>
-</div>
-</div>
-
-<div class="card" onclick="showDetail('Gamis Luxury Gold','Rp 379.000','Detail bordir emas mewah & eksklusif.')">
-<img src="assets/images/couple_produk.png">
-<div class="card-content">
-<h3>Gamis Luxury Gold</h3>
-<p class="price">Rp 379.000</p>
-<p>Premium look.</p>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f"
+onclick="viewImage(event,this.src)">
+<div class="product-info">
+<h3>Gamis Cream Luxury</h3>
+<p>Nuansa Ramadhan elegan</p>
+<div class="price">Rp 480.000</div>
+<button class="btn" onclick="addToCart(event)">Add to Cart</button>
 </div>
 </div>
 
 </div>
 </section>
 
-<!-- CELANA ANAK & dewasa -->
-<section class="section">
-<h2>Koleksi Celana Anak & dewass</h2>
+<section>
+<h2 class="section-title">Celana Anak</h2>
 <div class="products">
 
-<div class="card" onclick="showDetail('Celana Anak Premium','Rp 199.000','Nyaman, bahan adem & tidak panas.')">
-<img src="assets/images/celana.anak.png">
-<div class="card-content">
-<h3>Celana Anak Premium</h3>
-<p class="price">Rp 199.000</p>
-<p>Kualitas terbaik untuk si kecil.</p>
-</div>
-</div>
-
-<div class="card" onclick="showDetail('Celana Anak Casual','Rp 189.000','Desain modern & fleksibel.')">
-<img src="assets/images/celana.deawasa.png">
-<div class="card-content">
+<div class="product">
+<img src="https://images.unsplash.com/photo-1602810319428-019690571b5b"
+onclick="viewImage(event,this.src)">
+<div class="product-info">
 <h3>Celana Anak Casual</h3>
-<p class="price">Rp 189.000</p>
-<p>Nyaman dipakai sehari-hari.</p>
-</div>
-</div>
-
-<div class="card" onclick="showDetail('Celana Anak Ramadhan','Rp 209.000','Model eksklusif edisi Ramadhan.')">
-<img src="assets/images/celana.deawasa2.png">
-<div class="card-content">
-<h3>Celana Anak Ramadhan</h3>
-<p class="price">Rp 209.000</p>
-<p>Elegant & stylish.</p>
-</div>
-</div>
-
-<div class="card" onclick="showDetail('Celana Anak Formal','Rp 219.000','Cocok untuk acara formal & Hari Raya.')">
-<img src="assets/images/celana.deawasa.png">
-<div class="card-content">
-<h3>Celana Anak Formal</h3>
-<p class="price">Rp 219.000</p>
-<p>Tampil rapi & percaya diri.</p>
+<p>Usia 8–12 tahun, nyaman</p>
+<div class="price">Rp 120.000</div>
+<button class="btn" onclick="addToCart(event)">Add to Cart</button>
 </div>
 </div>
 
 </div>
 </section>
 
-<!-- PROMO -->
-<section class="promo">
-<h2>🌙 Promo Spesial Ramadhan 🌙</h2>
-<p>Diskon hingga 25% untuk Family Set</p>
-<p>Gratis Ongkir seluruh Indonesia*</p>
-<p>Bonus Hijab Exclusive untuk pembelian di atas 500rb</p>
+<section>
+<h2 class="section-title">Alamat Toko</h2>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126922.9937902093!2d106.689429!3d-6.229386"></iframe>
 </section>
 
-<footer class="footer">
-<h3>Alamat Toko</h3>
-<p>Jl. Raya wonopringgo  No. 11,wonopringgo-pekalongan, Indonesia</p>
-
-<h3>Follow Us</h3>
-<div class="social">
-<a href="#">Facebook : lunatic fashion store</a>
-<a href="#">Instagram : lunaticfashionS</a>
-<a href="#">TikTok : lunatic FashionS</a>
-<a href="#">WhatsApp : 082322021086</a>
-</div>
-
-<p>© 2026 Lunatic Fashion Store</p>
+<footer>
+© 2026 Lunatic Fashion Store — Elegant • Luxury • Trusted
 </footer>
 
-<!-- POPUP -->
-<div class="popup" id="popup">
-<div class="popup-content">
-<h2 id="title"></h2>
-<p id="price"></p>
-<p id="desc"></p>
-<button class="btn">Pesan Sekarang</button>
-<div class="close" onclick="closePopup()">Tutup</div>
-</div>
+<!-- IMAGE VIEWER -->
+<div class="image-viewer" id="imageViewer" onclick="closeImage()">
+<img id="fullImage">
 </div>
 
 <script>
-function showDetail(t,p,d){
-document.getElementById('title').innerText=t
-document.getElementById('price').innerText=p
-document.getElementById('desc').innerText=d
-document.getElementById('popup').style.display='flex'
+let cart=0;
+function addToCart(e){
+e.stopPropagation();
+cart++;
+document.getElementById("cartCount").innerText=cart;
 }
-function closePopup(){
-document.getElementById('popup').style.display='none'
+function openCart(){
+alert("Total item di keranjang: "+cart);
 }
-</script>
-    <script>
-function openImage(src){
-    document.getElementById("lightbox").style.display="block";
-    document.getElementById("lightbox-img").src = src;
+function viewImage(e,src){
+e.stopPropagation();
+document.getElementById("imageViewer").style.display="flex";
+document.getElementById("fullImage").src=src;
 }
-
 function closeImage(){
-    document.getElementById("lightbox").style.display="none";
+document.getElementById("imageViewer").style.display="none";
 }
-
-// Tutup jika klik background
-document.getElementById("lightbox").addEventListener("click", function(e){
-    if(e.target.id === "lightbox"){
-        closeImage();
-    }
-});
 </script>
-
 
 </body>
 </html>
