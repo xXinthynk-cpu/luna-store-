@@ -154,6 +154,12 @@ nav a{
 </head>
 
 <body>
+    <!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox">
+  <span onclick="closeImage()">&times;</span>
+  <img id="lightbox-img">
+</div>
+
 
 <header>
 <h1>LUNATIC FASHION STORE</h1>
@@ -163,6 +169,41 @@ nav a{
 <a href="#">Couple</a>
 </nav>
 </header>
+    /* LIGHTBOX FULL IMAGE */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    text-align: center;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: 10px;
+    animation: zoomIn 0.4s ease;
+}
+
+@keyframes zoomIn {
+    from {transform: scale(0.7); opacity:0;}
+    to {transform: scale(1); opacity:1;}
+}
+
+.lightbox span {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #D4AF37;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
 
 <section class="hero">
 <h2>Ramadhan Elegant Collection 2026</h2>
@@ -184,7 +225,8 @@ nav a{
 
 <div class="card" onclick="showDetail('Gamis Emerald Premium','Rp 349.000','Gamis hijau emerald berbahan satin premium, nyaman dan mewah untuk Ramadhan.')">
 <span class="badge">BEST SELLER</span>
-<img src="assets/images/gamishijab.png">
+<img src="assets/images/couple.best.png" onclick="openImage(this.src)">
+
 <div class="card-content">
 <h3>Gamis Emerald Premium</h3>
 <p class="price">Rp 349.000</p>
@@ -194,7 +236,8 @@ nav a{
 
 <div class="card" onclick="showDetail('Couple Ramadhan Gold','Rp 599.000','Set couple eksklusif dengan detail bordir emas.')">
 <span class="badge">UNGGULAN</span>
-<img src="assets/images/couple.best.jpg">
+<img src="assets/images/produk_unggulan1.png" onclick="openImage(this.src)">
+
 <div class="card-content">
 <h3>Couple Ramadhan Gold</h3>
 <p class="price">Rp 599.000</p>
@@ -338,6 +381,24 @@ function closePopup(){
 document.getElementById('popup').style.display='none'
 }
 </script>
+    <script>
+function openImage(src){
+    document.getElementById("lightbox").style.display="block";
+    document.getElementById("lightbox-img").src = src;
+}
+
+function closeImage(){
+    document.getElementById("lightbox").style.display="none";
+}
+
+// Tutup jika klik background
+document.getElementById("lightbox").addEventListener("click", function(e){
+    if(e.target.id === "lightbox"){
+        closeImage();
+    }
+});
+</script>
+
 
 </body>
 </html>
